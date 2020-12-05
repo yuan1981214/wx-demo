@@ -1,0 +1,41 @@
+<view>
+  <!-- 搜索栏 -->
+  <view class="search">
+    <view class="search-box">
+      <input type="text" 
+        placeholder="请输入菜谱名称" 
+        placeholder-class="p-box"
+        model:value="{{value}}"
+
+        />
+      <icon type="search" color="#fff" size="30" bindtap="search" ></icon>
+    </view>
+  </view>
+
+  <!-- 热门搜索  -->
+  <view class="hot-search">
+    <view class="hot-search-title">
+      热门搜索
+    </view>
+    <view class="hot-search-list">
+      <view wx:for="{{hortSearch}}" data-name="{{item.recipename}}" bindtap="search">
+         {{item.recipename}}
+      </view>
+    </view>
+  </view>
+  <!-- 近期搜索  -->
+  <view class="hot-search">
+    <view class="hot-search-title">
+      近期搜索
+    </view>
+    <view class="hot-search-list">
+      <view wx:for="{{hisSearch}}" data-name="{{item}}" bindtap="search">
+         {{item}}
+      </view>
+    </view>
+    <view hidden="{{hisBuffer}}">
+      暂无记录
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,7 @@
+
+
+.tips{
+    text-align: center;
+    line-height: 50rpx;
+    color: orange;
+}

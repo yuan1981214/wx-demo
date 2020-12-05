@@ -1,0 +1,60 @@
+<view>
+  <!-- swiper轮播图 -->
+  <swiper class="swiper" autoplay indicator-dots indicator-color="#fff" indicator-active-color="#eb9834">
+    <block wx:for="{{detail.filesIdArray}}">
+      <swiper-item>
+        <image src="{{ item }}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 名称 -->
+  <view class="info">
+    <view class="info-top">
+      <text space="nbsp">l {{detail.recipename}}</text>
+    </view>
+    <view class="info-bottom">
+      <view class="left">
+        <image src="{{detail.userinfo.avatarUrl}}"></image>
+        <text space="nbsp">   {{detail.userinfo.nickName}}</text>
+      </view>
+      <view class="center">
+        <image src="../../imgs/airs.png"></image>
+        <text>{{detail.visiter}}</text>
+      </view>
+      <view class="right">
+        <image src="../../static/detail/followed.png"></image>
+        <text>{{detail.follow}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="width:100%;height:30rpx;background-color:#f9f9f9"></view>
+  <!-- 做法显示 -->
+  <view class="makes">
+    <view class="makes-title">
+      做法
+    </view>
+    <view class="makes-content">
+     {{detail.recipestep}}
+    </view>
+  </view>
+
+  <!-- 底部显示 -->
+  <view class="bottom-set">
+    <view class="set-follow">
+      <!-- 没有关注 -->
+      <view wx:if="{{followBuffer}}" bindtap="follow">
+        <image src="../../static/detail/follow.png"></image>
+        <text>关注</text>
+      </view>
+
+      <!-- 已经关注 -->
+      <view wx:else bindtap="follow">
+        <image src="../../static/detail/followed.png"></image>
+        <text style="color: #ea932a;">取消关注</text>
+      </view>
+    </view>
+    <view class="set-concat">
+      <button open-type="share">分享给朋友</button>
+    </view>
+  </view>
+</view>
